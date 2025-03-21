@@ -1,0 +1,23 @@
+#develop a function to monitor tempereratur and provide alert
+def monitor_temperature(lower_limit, upper_limit):
+    while True:
+        try:
+            temp = float(input("Enter the current temperature (or type 'exit' to quit): "))
+            
+            if temp < lower_limit:
+                print(f"ALERT: Temperature too low! ({temp}°C)")
+            elif temp > upper_limit:
+                print(f"ALERT: Temperature too high! ({temp}°C)")
+            else:
+                print(f"Temperature is normal: {temp}°C")
+        
+        except ValueError:
+            choice = input("Invalid input. Type 'exit' to quit or press Enter to continue: ")
+            if choice.lower() == 'exit':
+                print("Exiting temperature monitor.")
+                break
+
+lower_limit = float(input("Enter lower limit of temperature range: "))
+upper_limit = float(input("Enter upper limit of temperature range: "))
+
+monitor_temperature(lower_limit,upper_limit)
